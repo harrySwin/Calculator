@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioButton
@@ -13,7 +14,34 @@ import android.widget.TextView
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
+    override fun onStop() {
+        super.onStop()
+        Log.i("LIFECYCLE","stopped")
+    }
+    override fun onStart() {
+        super.onStart()
+        Log.i("LIFECYCLE","started")
+    }
 
+    override fun onResume() {
+        super.onResume()
+        Log.i("LIFECYCLE","resumed")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i("LIFECYCLE","pause")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.i("LIFECYCLE", "restart")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i("LIFECYCLE","destroy")
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
